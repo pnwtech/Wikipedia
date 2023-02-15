@@ -1,0 +1,316 @@
+{
+	"info": {
+		"_postman_id": "24d40138-aedf-4671-8b82-61a9144130b9",
+		"name": "Grow",
+		"description": "Convenience wrapper for obtaining view count metadata through Wikipedia's APIs.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16711294"
+	},
+	"item": [
+		{
+			"name": "Top",
+			"item": [
+				{
+					"name": "Get Top Monthly Views",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test(\"Response Obect\", function () {",
+									"    pm.expect(pm.response.json().items.length).to.equal(1)",
+									"    pm.expect(pm.response.json().items[0].articles.length).to.equal(1000)",
+									"",
+									"    request_body = JSON.parse(pm.request.body.raw)",
+									"    pm.expect(pm.response.json().items[0].project).to.equal(request_body.project)",
+									"    pm.expect(pm.response.json().items[0].year).to.equal(request_body.year)",
+									"    pm.expect(pm.response.json().items[0].month).to.equal(request_body.month)",
+									"    pm.expect(pm.response.json().items[0].day).to.equal('all-days')",
+									"    pm.expect(pm.response.json().items[0].access).to.equal(request_body.access)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project\": \"en.wikipedia\",\n    \"year\": \"2022\",\n    \"month\": \"12\",\n    \"day\": \"04\",\n    \"granularity\": \"monthly\",\n    \"access\": \"all-access\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/top",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"top"
+							]
+						},
+						"description": "Get the top viewed articles by month."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Top Weekly Views",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test(\"Response Obect\", function () {",
+									"    pm.expect(pm.response.json().items.length).to.equal(1)",
+									"    pm.expect(pm.response.json().items[0].articles.length).to.not.equal(1000)",
+									"",
+									"    request_body = JSON.parse(pm.request.body.raw)",
+									"    pm.expect(pm.response.json().items[0].project).to.equal(request_body.project)",
+									"    pm.expect(pm.response.json().items[0].year).to.equal(request_body.year)",
+									"    pm.expect(pm.response.json().items[0].month).to.equal(request_body.month)",
+									"    pm.expect(pm.response.json().items[0].day).to.equal(request_body.day)",
+									"    pm.expect(pm.response.json().items[0].access).to.equal(request_body.access)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project\": \"en.wikipedia\",\n    \"year\": \"2022\",\n    \"month\": \"12\",\n    \"day\": \"04\",\n    \"granularity\": \"weekly\",\n    \"access\": \"all-access\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/top",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"top"
+							]
+						},
+						"description": "Get the top viewed articles by week."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Top Daily Views",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test(\"Response Obect\", function () {",
+									"    pm.expect(pm.response.json().items.length).to.equal(1)",
+									"    pm.expect(pm.response.json().items[0].articles.length).to.equal(1000)",
+									"",
+									"    request_body = JSON.parse(pm.request.body.raw)",
+									"    pm.expect(pm.response.json().items[0].project).to.equal(request_body.project)",
+									"    pm.expect(pm.response.json().items[0].year).to.equal(request_body.year)",
+									"    pm.expect(pm.response.json().items[0].month).to.equal(request_body.month)",
+									"    pm.expect(pm.response.json().items[0].day).to.equal(request_body.day)",
+									"    pm.expect(pm.response.json().items[0].access).to.equal(request_body.access)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project\": \"en.wikipedia\",\n    \"year\": \"2022\",\n    \"month\": \"12\",\n    \"day\": \"04\",\n    \"granularity\": \"daily\",\n    \"access\": \"all-access\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/top",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"top"
+							]
+						},
+						"description": "Get the top viewed articles by day."
+					},
+					"response": []
+				}
+			],
+			"description": "Get the top viewed articles based on time (Daily, Weekly, or Monthly)"
+		},
+		{
+			"name": "Top by Article",
+			"item": [
+				{
+					"name": "Get Views Between Dates (Week)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test(\"Response Obect\", function () {",
+									"    request_body = JSON.parse(pm.request.body.raw)",
+									"    pm.expect(pm.response.json().items[0].project).to.equal(request_body.project)",
+									"    pm.expect(pm.response.json().items[0].year).to.equal(request_body.year)",
+									"    pm.expect(pm.response.json().items[0].month).to.equal(request_body.month)",
+									"    pm.expect(pm.response.json().items[0].day).to.equal(request_body.day)",
+									"    pm.expect(pm.response.json().items[0].access).to.equal(request_body.access)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project\": \"en.wikipedia\",\n    \"start_date\": \"20221218\",\n    \"end_date\": \"20221224\",\n    \"agent\": \"all-agent\",\n    \"access\": \"all-access\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/top/Paris",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"top",
+								"Paris"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Views Between Dates (Month)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    pm.response.to.be.ok;",
+									"    pm.response.to.be.withBody;",
+									"    pm.response.to.be.json;",
+									"});",
+									"",
+									"pm.test(\"Response Obect\", function () {",
+									"    request_body = JSON.parse(pm.request.body.raw)",
+									"    pm.expect(pm.response.json().items[0].project).to.equal(request_body.project)",
+									"    pm.expect(pm.response.json().items[0].year).to.equal(request_body.year)",
+									"    pm.expect(pm.response.json().items[0].month).to.equal(request_body.month)",
+									"    pm.expect(pm.response.json().items[0].day).to.equal(request_body.day)",
+									"    pm.expect(pm.response.json().items[0].access).to.equal(request_body.access)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project\": \"en.wikipedia\",\n    \"start_date\": \"20221201\",\n    \"end_date\": \"20221231\",\n    \"agent\": \"all-agent\",\n    \"access\": \"all-access\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/top/Paris",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"top",
+								"Paris"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
