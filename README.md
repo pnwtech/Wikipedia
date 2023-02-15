@@ -45,11 +45,11 @@ This API is documented with examples using Postman. The Postman requests can be 
 
 ## Requirements
 
-● Retrieve a list of the most viewed articles for a week __Included in the `/top` API__
-● Retrieve a list of the most viewed articles for a month __Included in the `/top` API__
-● For any given article, be able to get the view count of that specific article for a week: __Included in the `/top/{article}` API__
-● For any given article, be able to get the view count of that specific article for a month: __Included in the `/top/{article}` API__
-● Retrieve the day of the month where an article got the most page views: __Included in the `/top/{article}` API__
+- Retrieve a list of the most viewed articles for a week __Included in the `/top` API__
+- Retrieve a list of the most viewed articles for a month __Included in the `/top` API__
+- For any given article, be able to get the view count of that specific article for a week: __Included in the `/top/{article}` API__
+- For any given article, be able to get the view count of that specific article for a month: __Included in the `/top/{article}` API__
+- Retrieve the day of the month where an article got the most page views: __Included in the `/top/{article}` API__
 
 ## Tests
 
