@@ -219,5 +219,8 @@ poetry.toml
 pyvenv.cfg
 pip-selfcheck.json
 
+### VSCode ###
+.vscode
+
 # End of https://www.toptal.com/developers/gitignore/api/python,venv,macos
 
