@@ -1,0 +1,14 @@
+{
+  "TableName": "wikipedia",
+  "KeySchema": [{ "AttributeName": "project", "KeyType": "HASH" }],
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "project",
+      "AttributeType": "S"
+    }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 10,
+    "WriteCapacityUnits": 10
+  }
+}

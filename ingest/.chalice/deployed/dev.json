@@ -1,0 +1,25 @@
+{
+  "resources": [
+    {
+      "name": "default-role",
+      "resource_type": "iam_role",
+      "role_arn": "arn:aws:iam::000000000000:role/ingest-dev",
+      "role_name": "ingest-dev"
+    },
+    {
+      "name": "handler",
+      "resource_type": "lambda_function",
+      "lambda_arn": "arn:aws:lambda:us-east-1:000000000000:function:ingest-dev-handler"
+    },
+    {
+      "name": "handler-sqs-event-source",
+      "resource_type": "sqs_event",
+      "queue_arn": "arn:aws:sqs:us-east-1:000000000000:wikipedia",
+      "event_uuid": "a56f37f1-7262-40a7-918d-1307db674fb3",
+      "queue": "wikipedia",
+      "lambda_arn": "arn:aws:lambda:us-east-1:000000000000:function:ingest-dev-handler"
+    }
+  ],
+  "schema_version": "2.0",
+  "backend": "api"
+}
