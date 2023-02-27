@@ -74,17 +74,6 @@ def weekly_view_sum(project, year, month, day, access="all-access"):
         res = executor.map(__unravel_top_request__, request_object)
     response_object = list(res)
 
-    # response_object = []
-    # for date_tuple in response_dates:
-    #     response = top(
-    #         project,
-    #         date_tuple[0],
-    #         str(date_tuple[1]).zfill(2),
-    #         str(date_tuple[2]).zfill(2),
-    #         access=access,
-    #     )
-    #     response_object.append(response)
-
     summed_views = __sum_nested__(response_object)
     sorted_by_views = sorted(summed_views.items(), key=lambda x: x[1], reverse=True)
     response = [
